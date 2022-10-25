@@ -9,7 +9,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "sass": "^1.55.0",
+    "scss": "^0.2.4",
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.19"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "author": "KGoutham7214 <202011034@diu.iiitvadodara.ac.in>",
+  "license": "MIT",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)."
 }

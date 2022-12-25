@@ -28,7 +28,7 @@ const SignUp = ()=>{
         setformFields(defaultFromFields);
     }
     
-    console.log(formFields);
+    
     const handleSubmit = async(event)=>{
         event.preventDefault();
         if(password !== confirmPassword){

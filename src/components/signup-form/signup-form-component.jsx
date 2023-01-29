@@ -1,9 +1,12 @@
 
-import { useState } from 'react';
-import { createAuthUserWithEmailAndPassword,createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
+import { useState,useContext } from 'react';
+import { createAuthUserWithEmailAndPassword,
+        createUserDocumentFromAuth } 
+    from '../../utils/firebase/firebase.utils';
 import FormInput from '../form-input/form-input';
 import './sign-up-form.css'
 import Button from '../Button/button-component';
+import { UserContext } from '../../contexts/user.context';
 
 const defaultFromFields = {
     displayName:'',
@@ -16,8 +19,11 @@ const defaultFromFields = {
 
 
 const SignUp = ()=>{
+    const {setCurrentUser} = useContext(UserContext)
     const [formFields, setformFields] = useState(defaultFromFields);
     const {displayName,email,password,confirmPassword} = formFields;
+
+    
     const handleChange=(event)=>{
         const {name,value} = event.target;
         setformFields({...formFields,[name]:value});
@@ -37,6 +43,7 @@ const SignUp = ()=>{
         }
         try {
             const {user} = await createAuthUserWithEmailAndPassword(email,password);
+            setCurrentUser(user);
             await createUserDocumentFromAuth(user,{displayName});
             resetformfeilds();
         }
@@ -98,7 +105,7 @@ const SignUp = ()=>{
             value={confirmPassword}
             />
 
-            <Button type='submit' >Sign in</Button>
+            <Button type='submit' >Sign up</Button>
             </form>
             
         </div>

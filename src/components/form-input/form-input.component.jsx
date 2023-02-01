@@ -1,5 +1,5 @@
 
-import './form-input.css'
+import './form-input.component.styles.css'
 
 
 const formIn = ({label,...otherInfo})=>{
